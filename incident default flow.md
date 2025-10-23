@@ -6,6 +6,7 @@
 
 flowchart LR
 
+startSub-->identifySub
   identifySub-->draftSub
   draftSub-->analysisSub
   analysisSub-->containmentSub
@@ -16,15 +17,21 @@ flowchart LR
   closeSub-->endflowSub
 
   
-  
 
+subgraph startSub[Start]
+ startstep((Start))
+end
+
+
+%% Identify Stage %%
 subgraph identifySub[Identify]
   direction LR
   firsttask
   dosomething
   nestthing
-
 end
+
+%% Draft Stage %%
 subgraph draftSub[Draft]
      direction LR
     assignincident[Assignment]
@@ -32,7 +39,7 @@ subgraph draftSub[Draft]
     anotherthing2
 end
 
-
+%% Analysis Stage %%
 subgraph analysisSub[Analysis]
  direction LR
     IOC
@@ -40,13 +47,15 @@ subgraph analysisSub[Analysis]
     sigthingsearch[Sigthing search]
 end
 
+
+%%Containment Stage %%
 subgraph containmentSub[Containment]
   direction LR
   isolatedevice
   reimagedevice
 end
 
-
+%%Eradicate Stage %%
 subgraph eradicationSub[Eradication]
   direction LR
   eradicationThing[Disable Account]
@@ -54,6 +63,8 @@ subgraph eradicationSub[Eradication]
   thirderadicationthing 
 end
 
+
+%% Recovery Stage %%
 subgraph recoverySub[Recovery]
   direction LR
   recoverynThing
@@ -61,7 +72,7 @@ subgraph recoverySub[Recovery]
   recoverthing3
 end
 
-
+%% review Stage %%
 subgraph reviewSub[Review]
   direction LR
   reviewnote[Review notes] 
@@ -69,7 +80,7 @@ subgraph reviewSub[Review]
   reviewstep3["`_`"]
 end
 
-
+%% Clousure Stage %%
 subgraph closeSub[Close]
   direction LR
   closurestep1
@@ -78,12 +89,10 @@ subgraph closeSub[Close]
 
 end
 
-
+%% End of flow Stage %%
 subgraph endflowSub["`End`"]
   direction LR
-
-  finished
-
+  finished((Finished))
 end
 
 ```
